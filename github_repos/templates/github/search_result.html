@@ -1,11 +1,8 @@
-<div class="container padded" style='padding-left: 20px'>
-    <form action="{% url 'github:search_result' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="search_word" placeholder="repo name">
-        <label>Search</label>
-        <input type="submit" value="Search">
-    </form>
-    <h1>List of your repositories</h1>
+<div class="container padded" style=
+'padding-left: 20px'
+>
+    <form action=""></form>
+    <h1>Results of search for: {{search_word}}</h1>
     {%if data%}
         {% for repo in data %}
             <li>

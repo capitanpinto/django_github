@@ -31,3 +31,13 @@ def index(request):
     data = Repository.objects.all()
     return render(request, 'github/index.html', {'data':data})
 
+def search_result(request):
+    search_word = request.POST.get('search_word', '')
+    data = Repository.objects.filter(name__contains=str(search_word))
+    return render(request, 'github/search_result.html', {'data':data, 'search_word': search_word})
+
+def search(request):
+        search_word = request.GET.get('search_word', '') 
+        print(search_word)
+        print("jessica")
+        return HttpResponseRedirect(reverse('github:search_result'))
