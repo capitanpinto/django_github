@@ -16,6 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 urlpatterns = [
-	path('github', include('github_repos.urls')),
+	path('github/', include('github_repos.urls')),
     path('admin/', admin.site.urls),
 ]

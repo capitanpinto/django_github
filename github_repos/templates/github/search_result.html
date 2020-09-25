@@ -1,17 +1,20 @@
-<div class="container padded" style=
-'padding-left: 20px'
->
-    <form action=""></form>
-    <h1>Results of search for: {{search_word}}</h1>
-    {%if data%}
-        {% for repo in data %}
-            <li>
-                <a href= {{ repo.url }}>
-                    {{ repo.name }}        
-                </a>
-            </li>
-        {% endfor %}
-    {%endif%}
-    </br>
-    <a href='https://github.com/login/oauth/authorize?client_id=dbe43691bc3b0c94d2de'>GitHub SignIn</a>
-</div>    
+{% extends "github/base.html" %}
+{% block body_block %}
+    <div class="container padded" style=
+    'padding-left: 20px'
+    >
+        <form action=""></form>
+        <h1>Results of search for: {{search_word}}</h1>
+        {%if data%}
+            {% for repo in data %}
+                <li>
+                    <a href= {{ repo.url }}>
+                        {{ repo.name }}        
+                    </a>
+                </li>
+            {% endfor %}
+        {%endif%}
+        </br>
+        <a href='https://github.com/login/oauth/authorize?client_id=dbe43691bc3b0c94d2de'>GitHub SignIn</a>
+    </div>    
+{% endblock %}

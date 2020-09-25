@@ -1,20 +1,19 @@
-<div class="container padded" style='padding-left: 20px'>
-    <form action="{% url 'github:search_result' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="search_word" placeholder="repo name">
-        <label>Search</label>
-        <input type="submit" value="Search">
-    </form>
-    <h1>List of your repositories</h1>
-    {%if data%}
-        {% for repo in data %}
-            <li>
-                <a href= {{ repo.url }}>
-                    {{ repo.name }}        
-                </a>
-            </li>
-        {% endfor %}
-    {%endif%}
-    </br>
-    <a href='https://github.com/login/oauth/authorize?client_id=dbe43691bc3b0c94d2de'>GitHub SignIn</a>
-</div>    
+{% extends "github/base.html" %}
+{% block body_block %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'github_repos/style.css' %}">
+    <div class="container padded" style='padding-left: 20px'>
+        <h1>List of your repositories</h1>
+        {%if data%}
+            {% for repo in data %}
+                <li>
+                    <a href= {{ repo.url }}>
+                        {{ repo.name }}        
+                    </a>
+                </li>
+            {% endfor %}
+        {%endif%}
+        </br>
+        <button class="open-button">Open Form</button>
+    </div>    
+{% endblock %}
