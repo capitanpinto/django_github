@@ -125,3 +125,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CLIENT_ID = "dbe43691bc3b0c94d2de"
+
+#DataFlair
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'pintosky1789@gmail.com'
+EMAIL_HOST_PASSWORD = 'S@n95pib$94'

@@ -2,34 +2,36 @@
 <html>
 <head>
     <title>HomePage</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-  <center>
-     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <ul class="nav navbar-nav">
-          <li><a class="navbar-brand" href="{% url 'github:index' %}">HomePage</a></li>
-          <li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h1 class="navbar-brand">
             <a href='https://github.com/login/oauth/authorize?client_id=dbe43691bc3b0c94d2de'>
                 <img src="../static/github_repos/images/github.jpg" width="130px" height="60px">
-            </a>              
-          </li>
-          <li class="my-10">
-            <form action="{% url 'github:search_result' %}" method="post">
-            {% csrf_token %}
-                <input type="text" name="search_word" placeholder="repo name">
-                <label>Search</label>
-                <input type="submit" value="Search">
-            </form>            
-          </li>
+            </a> 
+        </h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        </ul>
-      </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="navbar-brand" href="{% url 'github:index' %}">HomePage</a>
+            </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'github:search_result' %}" method="post">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="text" name="search_word" placeholder="repo name">
+                <button type="submit" class="btn btn-outline-info my-2 my-sm-0" value="Search">Search</button>
+            </form>              
+        </div>
     </nav>
-        {% block body_block %}
+  
+    {% block body_block %}
 
-        {% endblock %}
-    </center>
+    {% endblock %}
+
 </body>
 </html>
